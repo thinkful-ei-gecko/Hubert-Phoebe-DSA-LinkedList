@@ -19,11 +19,14 @@ function main() {
 
 
   // console.log(JSON.stringify(SLL))
-  displayAsLl(SLL);
-  size(SLL);
-  isEmpty(SLL);
-  findPrevious('Athena', SLL)
-  findLast(SLL);
+  //displayAsLl(SLL);
+  //size(SLL);
+  //isEmpty(SLL);
+  //findPrevious('Athena', SLL)
+  //findLast(SLL);
+  //reverse(SLL);
+  //thirdFromTheEnd(SLL);
+  cycleList();
 }
 main()
 
@@ -90,3 +93,89 @@ function findLast (linkedL) {
 
 // 4. Mystery Program - This program is a duplicate eliminator. It is O(n^2) because the nested loop indicates a polynomial relationship.
 
+// 5. Reverse a list
+function reverse(linkedL) {
+  // A->B->C = C->B->A
+  let currNode = linkedL.head;
+  let prevNode = null;
+  let nextNode;
+
+  if (linkedL.head === null) {
+    console.log('There is no item')
+    return;
+  }
+
+  while(currNode !== null) {
+    nextNode = currNode.next;
+    currNode.next = prevNode;
+    prevNode = currNode;
+    currNode = nextNode;
+  }
+
+  this.head = prevNode;
+  console.log(JSON.stringify(prevNode))
+  return prevNode;
+}
+
+function thirdFromTheEnd(linkedL) {
+  let currNode = linkedL.head;
+  let prevNode = linkedL.head;
+
+  while(currNode.next.next !== null) {
+    prevNode = currNode;
+    currNode = currNode.next;
+  }
+
+  return console.log(JSON.stringify(prevNode.value));
+}
+
+function middle(linkedL) {
+  let currNode = linkedL.head;
+  let prevNode = linkedL.head; 
+}
+
+function cycleList() {
+  const list = new LinkedList();
+
+  list.insertFirst('Computer')
+  list.insertLast('Laptop');
+  list.insertLast('Mouse');
+  list.insertLast('Speakers');
+
+  displayAsLl(list);
+  cycle(list);
+  displayAsLl(list);
+  
+  //return list;
+}
+
+cycleList()
+
+function cycle(linkedL) {
+  let currNode = linkedL.head
+  
+  while(currNode.next !== null) {
+    currNode = currNode.next;
+  }
+  currNode.next = linkedL.head;
+}
+
+function testCycle(lst) {
+  let current = lst.head;
+  while (current !== null) {
+    if (current.next === null) {
+      return false;
+    }
+    let newNode = current;
+    while (newNode.next !== null) {
+      if (newNode.next.value === current.value) {
+        newNode.next = newNode.next.next;
+        return true;
+      }
+      else {
+        newNode = newNode.next;
+      }
+    }
+    current = current.next;
+  }
+}
