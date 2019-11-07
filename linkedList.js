@@ -46,8 +46,52 @@ class LinkedList {
 
     let newNode = previousNode
     newNode.next = new _Node(item, previousNode.next)
+    // or
+    // let newNode = new _Node(item, previousNode.next)
+    // previousNode.next = newNode;
+  }
 
-    //currNode.next = key;
+  insertAfter(item, key) {
+    let currNode = this.head;
+    let previousNode = this.head;
+    
+    if(!this.head) {
+      return null;
+    }
+
+    while((currNode !== null) && (previousNode.value !== key)) {
+      previousNode = currNode;
+      currNode = currNode.next;
+    }
+
+    //if your'e at the end of the list and you haven't found the key
+    if(currNode === null && (previousNode.value !==key)) {
+      console.log('Item not found')
+      return;
+    } 
+
+    let newNode = new _Node(item, previousNode.next)
+    previousNode.next = newNode;
+  }
+
+  //Is "zero-indexed" (consideres head to be position 0)
+  insertAt(item, position) {
+    if (position === 0) {
+      this.head = new _Node(item, this.head)
+      return;
+    }
+
+    let counter = 1;
+    let prevNode = this.head;
+    let currNode = this.head;
+    while(counter <= position && currNode !== null) {
+      counter++;
+      prevNode = currNode;
+      currNode = currNode.next;
+    }
+    
+    let newNode = new _Node(item, currNode);
+    prevNode.next = newNode;
   }
 
   remove(item) {

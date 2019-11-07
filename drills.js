@@ -10,10 +10,15 @@ function main() {
   SLL.insertLast('Starbuck')
   SLL.insertLast('Tauhida')
 
-  SLL.insertBefore('Athena', 'Boomer')
-
   SLL.remove('squirrel')
+  SLL.insertBefore('Athena', 'Boomer')
+  SLL.insertAfter('Hotdog', 'Helo')
+  SLL.insertAt('Kat', 3)
+  SLL.remove('Tauhida')
+
 
   console.log(JSON.stringify(SLL))
 }
 main()
+
+//3.
