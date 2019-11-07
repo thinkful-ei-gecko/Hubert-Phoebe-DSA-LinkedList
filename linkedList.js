@@ -28,13 +28,15 @@ class LinkedList {
 
   insertBefore(item, key) {
     let currNode = this.head;
+    let previousNode = this.head;
     
     if(!this.head) {
       return null;
     }
 
-    while((currNode.next !== null) && (currNode.value !== key)) {
-      currNode = currNode.next
+    while((currNode !== null) && (currNode.value !== key)) {
+      previousNode = currNode;
+      currNode = currNode.next;
     }
 
     if(currNode.next === null) {
@@ -42,8 +44,8 @@ class LinkedList {
       return;
     } 
 
-    let newNode = new _Node(item, currNode.next)
-    currNode = newNode
+    let newNode = previousNode
+    newNode.next = new _Node(item, previousNode.next)
 
     //currNode.next = key;
   }
