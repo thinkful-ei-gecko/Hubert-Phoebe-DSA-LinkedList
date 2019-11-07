@@ -1,6 +1,6 @@
 const LinkedList = require('./linkedList')
 
-function main() {
+// function main() {
   let SLL = new LinkedList();
 
   SLL.insertFirst('Apollo')
@@ -18,7 +18,18 @@ function main() {
 
 
   console.log(JSON.stringify(SLL))
-}
-main()
+// }
+// main()
 
-//3.
+//3. Supp Funcs
+function displayAsLl (lL) {
+  console.log(JSON.stringify(lL))
+}
+
+function displayAsArr (lL) {
+  lLArr = [];
+  while()
+  console.log(JSON.stringify(lL))
+}
+
+displayAsLl(SLL);
