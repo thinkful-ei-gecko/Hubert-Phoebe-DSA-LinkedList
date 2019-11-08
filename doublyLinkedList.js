@@ -75,7 +75,6 @@ class DoublyLinkedList {
     //if the node to be removed is head, make the next node head
     if(current === this.head){
         this.head = current.next;
-        //return;
     } else{
         current.prev.next = current.next;
     }
@@ -133,8 +132,6 @@ function main(){
         
   let dll = new DLinkedList();
   dll.insertFirst('Aquaria');
-  //add the following items in your doubly linked list. 
-  //`Aquaria, Caprica, Gemenon, Picon, Sagittaron`
           
   dll.insertLast('Caprica');
   dll.insertLast('Gemenon');
