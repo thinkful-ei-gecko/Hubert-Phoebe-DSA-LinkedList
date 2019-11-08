@@ -26,6 +26,7 @@ function main() {
   //findLast(SLL);
   //reverse(SLL);
   //thirdFromTheEnd(SLL);
+  //middleOfList(SLL)
   cycleList();
 }
 main()
@@ -129,10 +130,18 @@ function thirdFromTheEnd(linkedL) {
   return console.log(JSON.stringify(prevNode.value));
 }
 
-function middle(linkedL) {
-  let currNode = linkedL.head;
-  let prevNode = linkedL.head; 
-}
+function middleOfList(linkedL) {
+  let end = lst.head;
+  let middle = lst.head;
+  // two cases cover even and odd length
+  while(end !== null && end.next !== null) {
+    // advance one pointer 2 times faster than the other
+    end = end.next.next;
+    middle = middle.next;
+  }
+  // return the value of the node which was advanced at regular speed
+  return middle.value;
+};
 
 function cycleList() {
   const list = new LinkedList();
